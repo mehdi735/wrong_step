@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 #var _music: AudioStreamMP3
 
 func _ready() -> void:
-	get_tree().change_scene_to_file(Memory.get_data("level", "path_level", "res://Levels/Level1/level_1.tscn"))
+	#get_tree().change_scene_to_file(Memory.get_data("level", "path_level", "res://Levels/Level1/level_1.tscn"))
 	bus = "Music"
 	#play_music()
 	await get_tree().create_timer(1.0).timeout

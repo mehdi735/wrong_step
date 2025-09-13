@@ -67,4 +67,4 @@ text = "مرحله 15"
 
 [connection signal="finished" from="Spike4" to="." method="_on_spike_4_finished"]
 [connection signal="finished" from="GateFake" to="." method="_on_gate_fake_finished"]
-[connection signal="win" from="GateFake" to="." method="_on_gate_fake_win"]
+[connection signal="win" from="MainGate" to="." method="_on_main_gate_win"]

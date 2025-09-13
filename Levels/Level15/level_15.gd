@@ -26,5 +26,7 @@ func _on_gate_fake_finished() -> void:
 	main_gate.change_pos(CharacterBody2D.new())
 
 
-func _on_gate_fake_win() -> void:
+
+
+func _on_main_gate_win() -> void:
 	get_tree().change_scene_to_file("res://Levels/Level16/level_16.tscn")
