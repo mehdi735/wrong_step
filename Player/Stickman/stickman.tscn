@@ -1,0 +1,407 @@
+[gd_scene load_steps=36 format=3 uid="uid://dfo5seum105so"]
+
+[ext_resource type="Texture2D" uid="uid://cdkfiekmqikxu" path="res://Assets/photo/StickmanSpriteSheet.webp" id="1_djn5s"]
+[ext_resource type="Script" uid="uid://clundxvnec4jg" path="res://Player/Stickman/stickman.gd" id="1_sp1mc"]
+[ext_resource type="Texture2D" uid="uid://bnjsilg2s4upq" path="res://Assets/photo/Crushed.webp" id="2_m4p53"]
+[ext_resource type="Texture2D" uid="uid://bi8rx8usxueg7" path="res://Assets/photo/Pixel Art Buttons.png" id="3_ih5kn"]
+[ext_resource type="AudioStream" uid="uid://casatoxj6wlhf" path="res://Assets/sound/run.wav" id="4_caymp"]
+[ext_resource type="AudioStream" uid="uid://d35q67q848nqy" path="res://Assets/sound/death.wav" id="4_v47ax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djn5s"]
+height = 58.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caymp"]
+atlas = ExtResource("2_m4p53")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v47ax"]
+atlas = ExtResource("2_m4p53")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx0mr"]
+atlas = ExtResource("2_m4p53")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlcd5"]
+atlas = ExtResource("2_m4p53")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4p53"]
+atlas = ExtResource("1_djn5s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvtm0"]
+atlas = ExtResource("1_djn5s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djn5s"]
+atlas = ExtResource("1_djn5s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp1mc"]
+atlas = ExtResource("1_djn5s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih5kn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caymp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v47ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx0mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlcd5")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4p53")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvtm0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djn5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp1mc")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_caymp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v47ax"]
+resource_name = "death"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_v47ax")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_jx0mr"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dlcd5"]
+resource_name = "jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m4p53"]
+resource_name = "run"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.55,
+"start_offset": 0.0,
+"stream": ExtResource("4_caymp")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v47ax"]
+_data = {
+&"RESET": SubResource("Animation_caymp"),
+&"death": SubResource("Animation_v47ax"),
+&"idle": SubResource("Animation_jx0mr"),
+&"jump": SubResource("Animation_dlcd5"),
+&"run": SubResource("Animation_m4p53")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jx0mr"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4p53"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_caymp"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v47ax"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_dlcd5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_m4p53")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_caymp")
+blend_point_1/pos = 0.5
+blend_point_2/node = SubResource("AnimationNodeAnimation_v47ax")
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dlcd5"]
+nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_dlcd5")
+nodes/BlendSpace1D/position = Vector2(293.333, 80)
+nodes/output/position = Vector2(560, 106.667)
+node_connections = [&"output", 0, &"BlendSpace1D"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4p53"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dlcd5"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v47ax"]
+states/death/node = SubResource("AnimationNodeAnimation_jx0mr")
+states/death/position = Vector2(770.667, 98)
+states/idle_run_jump/node = SubResource("AnimationNodeBlendTree_dlcd5")
+states/idle_run_jump/position = Vector2(536, 99.3333)
+transitions = ["Start", "idle_run_jump", SubResource("AnimationNodeStateMachineTransition_m4p53"), "idle_run_jump", "death", SubResource("AnimationNodeStateMachineTransition_dlcd5")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih5kn"]
+size = Vector2(170, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4p53"]
+size = Vector2(170, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caymp"]
+size = Vector2(170, 170)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4p53"]
+radius = 12.0
+height = 62.0
+
+[node name="Stickman" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_sp1mc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_djn5s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ih5kn")
+animation = &"run"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v47ax")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_v47ax")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/death = false
+parameters/idle_run_jump/BlendSpace1D/blend_position = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(183, 963)
+shape = SubResource("RectangleShape2D_ih5kn")
+
+[node name="ButtonLeftSprite" type="Sprite2D" parent="CanvasLayer/ButtonLeft"]
+position = Vector2(-13, -1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ih5kn")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(253.038, 131.112, 255.619, 50.6667)
+
+[node name="ButtonRight" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(431, 963)
+shape = SubResource("RectangleShape2D_m4p53")
+
+[node name="ButtonRightSprite" type="Sprite2D" parent="CanvasLayer/ButtonRight"]
+position = Vector2(-5, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ih5kn")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(-1.17075, 194.223, 253.333, 51.5556)
+
+[node name="ButtonJump" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(1681, 961)
+shape = SubResource("RectangleShape2D_caymp")
+
+[node name="ButtonJumpSprite" type="Sprite2D" parent="CanvasLayer/ButtonJump"]
+position = Vector2(-11, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ih5kn")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(252.67, 67.5554, 256.296, 49.4815)
+
+[node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_m4p53")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="released" from="CanvasLayer/ButtonLeft" to="." method="_on_button_left_released"]
+[connection signal="pressed" from="CanvasLayer/ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="released" from="CanvasLayer/ButtonRight" to="." method="_on_button_right_released"]
+[connection signal="pressed" from="CanvasLayer/ButtonJump" to="." method="_on_button_jump_pressed"]
+[connection signal="released" from="CanvasLayer/ButtonJump" to="." method="_on_button_jump_released"]
+[connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_area_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_area_entered"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://yl0nc12bft0i"]
+
+[ext_resource type="Texture2D" uid="uid://c6cglrrql7vpl" path="res://Assets/photo/Gate.webp" id="1_4hd7c"]
+[ext_resource type="Script" uid="uid://cr3a0ign2crly" path="res://Gate/gate.gd" id="1_gh5lt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hd7c"]
+size = Vector2(71, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh5lt"]
+atlas = ExtResource("1_4hd7c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0s5i"]
+atlas = ExtResource("1_4hd7c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxjwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh5lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0s5i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gate" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gh5lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_4hd7c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qxjwc")
+frame_progress = 0.464542
+offset = Vector2(0, -2)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

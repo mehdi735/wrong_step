@@ -1,0 +1,63 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="WrongStep"
+config/name_localized={
+"en": "Wrong Step",
+"fa": "قدم اشتباه"
+}
+run/main_scene="uid://dp2sgk7870g7i"
+config/features=PackedStringArray("4.4", "Mobile")
+run/max_fps=60
+config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalMusic="*res://Global/global_music.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=640
+window/size/window_height_override=360
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "green"
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Wall"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="death"
+2d_physics/canvas_textures/default_texture_filter=1
+
+[physics]
+
+3d/physics_engine="Dummy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(1, 0.559194, 0.158162, 1)
