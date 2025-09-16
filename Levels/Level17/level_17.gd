@@ -14,12 +14,15 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_gate_changed_pos() -> void:
-	GlobalMusic.play_fx(Paths.trap)
 	var tween: Tween = create_tween()
 	tween.set_loops(0)
+	tween.loop_finished.connect(_on_tween_loop_finished)
 	tween.tween_property(spike, "global_position:x", 1500.0, 1.0)
-	tween.tween_property(spike, "global_position:x", 97.0, 1.0)
+	tween.tween_property(spike, "global_position:x", 97.0, 1.4)
 
+
+func _on_tween_loop_finished(_loop_count: int) -> void:
+	GlobalMusic.play_fx(Paths.trap)
 
 func _on_gate_win() -> void:
 	get_tree().change_scene_to_file("res://Levels/Level18/level_18.tscn")

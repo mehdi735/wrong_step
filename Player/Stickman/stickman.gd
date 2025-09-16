@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+signal jumped
+signal death
+
 @export var speed: int = 10000
 @export var jump: int = -400
 @export var gravity: int = 1000
@@ -47,6 +50,7 @@ func _physics_process(delta: float) -> void:
 		animation_tree["parameters/idle_run_jump/BlendSpace1D/blend_position"] = 0.5
 
 	if is_on_floor() and is_jump:
+		jumped.emit()
 		velocity.y += jump
 		GlobalMusic.play_fx(preload("res://Assets/sound/jump.wav"))
 
@@ -109,10 +113,12 @@ func _on_button_jump_released() -> void:
 
 
 func _on_death_area_area_entered(_area: Node2D) -> void:
-	for child: Node in canvas_layer.get_children():
+	for child: CanvasItem in canvas_layer.get_children():
+		child.hide()
 		child.process_mode = Node.PROCESS_MODE_DISABLED
 	animation_tree["parameters/conditions/death"] = true
 	gravity *= -1
+	death.emit()
 
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:

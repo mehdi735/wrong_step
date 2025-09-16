@@ -20,10 +20,12 @@ func _physics_process(_delta: float) -> void:
 
 func _on_gate_fake_body_entered(_body: Node) -> void:
 	GlobalMusic.play_fx(Paths.sound_jump)
+	gate_fake.apply_central_impulse(Vector2(0, -200))
 
 
 func _on_gate_fake_2_body_entered(_body: Node) -> void:
 	GlobalMusic.play_fx(Paths.sound_jump)
+	gate_fake_2.apply_central_impulse(Vector2(0, -200))
 
 
 func _on_gate_win() -> void:

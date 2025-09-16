@@ -19,12 +19,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = ExtResource("1_2c7gu")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAmADUAAAAAAAAAAAAsADUAAAAAAAAAAAAwADUAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAsADUAAAAAAAAAAAAwADUAAAAAAAAAAAAmADUAAAAAAAAAAAA=")
 tile_set = ExtResource("3_ojeli")
-
-[node name="Stickman" parent="." instance=ExtResource("2_ey4ft")]
-position = Vector2(304, 830)
-jump = -450
 
 [node name="Label" type="Label" parent="."]
 offset_left = 926.0
@@ -60,6 +56,10 @@ rotation = 1.5708
 [node name="Gate" parent="." instance=ExtResource("5_ij6mr")]
 position = Vector2(1647, 837)
 new_pos = Vector2(304, 837)
+
+[node name="Stickman" parent="." instance=ExtResource("2_ey4ft")]
+position = Vector2(304, 830)
+jump = -450
 
 [connection signal="changed_pos" from="Gate" to="." method="_on_gate_changed_pos"]
 [connection signal="win" from="Gate" to="." method="_on_gate_win"]

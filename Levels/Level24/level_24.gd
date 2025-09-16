@@ -17,6 +17,7 @@ func _on_timer_timeout() -> void:
 
 	var spike_2: Spike = spike_scene.instantiate()
 	spike_2.rotation = deg_to_rad(270.0)
+	spike_2.time_change_pos = 0.8
 	spike_2.new_pos = Vector2(56.0, pos_spike_2.global_position.y)
 	pos_spike_2.add_child(spike_2)
 	spike_2.change_pos()

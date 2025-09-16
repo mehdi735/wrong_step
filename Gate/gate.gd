@@ -1,6 +1,7 @@
 class_name Gate
 extends Area2D
 
+signal entered_gate
 signal win
 signal changed_pos
 signal changed_pos_array(index:int)
@@ -45,6 +46,7 @@ func change_pos(body: CharacterBody2D = null) -> void:
 		finished.emit()
 
 	else:
+		entered_gate.emit()
 		var tween: Tween = create_tween()
 		body.scale = Vector2(0.7, 0.7)
 		body.global_position = animated_sprite_2d.global_position

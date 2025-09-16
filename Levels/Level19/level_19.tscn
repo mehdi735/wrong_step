@@ -34,20 +34,20 @@ target_position = Vector2(0, -800)
 collision_mask = 2
 
 [node name="Spike2" parent="." instance=ExtResource("5_63paq")]
-position = Vector2(1011, 140)
+position = Vector2(1084, 140)
 rotation = 3.14159
-time_change_pos = 0.2
-new_pos = Vector2(1011, 880)
+time_change_pos = 0.3
+new_pos = Vector2(1084, 880)
 
 [node name="RayCast2" type="RayCast2D" parent="Spike2"]
-position = Vector2(41, -3)
+position = Vector2(48, -2.99988)
 target_position = Vector2(0, -800)
 collision_mask = 2
 
 [node name="Spike3" parent="." instance=ExtResource("5_63paq")]
 position = Vector2(1457, 140)
 rotation = 3.14159
-time_change_pos = 0.2
+time_change_pos = 0.35
 new_pos = Vector2(1457, 880)
 
 [node name="RayCast3" type="RayCast2D" parent="Spike3"]
@@ -56,9 +56,9 @@ target_position = Vector2(0, -800)
 collision_mask = 2
 
 [node name="Spike4" parent="." instance=ExtResource("5_63paq")]
-position = Vector2(1661, 140)
+position = Vector2(1701, 140)
 rotation = 3.14159
-time_change_pos = 0.2
+time_change_pos = 0.4
 new_pos = Vector2(1661, 880)
 
 [node name="RayCast4" type="RayCast2D" parent="Spike4"]
